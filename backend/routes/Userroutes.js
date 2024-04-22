@@ -1,11 +1,10 @@
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
 import express from "express";
 import jwt from "jsonwebtoken";
 import { User } from "../models/Usermodel.js";
-
+dotenv.config();
 const route = express.Router();
-const SECRET_KEY = "dhaya";
-
 route.post("/register", async (req, res) => {
   try {
     if (!req.body.name || !req.body.email || !req.body.password) {
@@ -55,7 +54,9 @@ route.post("/login", async (req, res) => {
       return res.status(400).send("Invalid password");
     }
 
-    const token = jwt.sign({ id: user.id }, SECRET_KEY, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
+      expiresIn: "1h",
+    });
     return res.status(200).json({ message: "Login successful", token: token });
   } catch (error) {
     console.log(error);
