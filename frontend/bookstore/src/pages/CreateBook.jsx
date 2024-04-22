@@ -21,7 +21,7 @@ const Createbook = () => {
       .then((response) => {
         setLoading(false);
         alert("Book Created Successfully");
-        navigate("/");
+        navigate("/Home");
       })
       .catch((err) => {
         alert("An error Occured. Please check Console for more details");

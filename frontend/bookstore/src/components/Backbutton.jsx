@@ -2,7 +2,7 @@ import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const Backbutton = ({ destination = "/" }) => {
+const Backbutton = ({ destination = "/Home" }) => {
   return (
     <div className="flex px-2 ">
       <Link

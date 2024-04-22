@@ -27,7 +27,7 @@ const EditBook = () => {
       .then((response) => {
         setLoading(false);
         alert("Book Updated Successfully");
-        navigate("/");
+        navigate("/Home");
       })
       .catch((err) => {
         alert("An error Occured. Please check Console for more details");
